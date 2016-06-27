@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+</title>
+<style>
+    
+</style>
+    <script  src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js'></script>
+
+</head>
+<body>
+    <div class='holder'>
+        <form><label for="miles">miles</label>
+        <input type="text" id="miles">
+            <button id="submit">submit</button>
+        </form>
+    </div>
+</body>
+<script>
+$(function(){
+//alert('ready freddy');
+//EPA-420-F-14-040a
+    //May 2014
+    //CO2 emissions per mile = CO2 per gallon/MPG
+    //or 8887/21.6
+    //411 grams per mile 
+var miles;
+var co2 = 411;//grams produced per mile
+var cpm = 59.2;//avg cost of driving @ AAA
+    //grams to pounds
+    //1 gram = 0.00220462 lbs
+    //alert('grams of co2 = '+grms )
+
+    //alert(lbs);
+$('#submit').click(function(){
+	
+    
+	miles = $("#miles").val();
+    if(miles==""|isNaN(miles)){alert('enter a number');
+                 return;}
+    var grms = miles*co2;
+    var dollars = ((miles*cpm)/100).toFixed(2);
+    var lbs = (grms * 0.0022462).toFixed(2);
+    
+    alert(miles+" miles of car travel produces on average "+lbs+" lbs. of CO2, and an average cost of $"+dollars);
+	});
+    
+    
+    
+});
+</script>
+</html>
